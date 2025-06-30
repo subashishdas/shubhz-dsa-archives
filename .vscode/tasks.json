@@ -1,0 +1,16 @@
+{
+  "label": "compile and run",
+  "type": "shell",
+  "command": "javac -d . \"${file}\" && java ${fileBasenameNoExtension} < input.txt > output.txt",
+  "options": {
+    "shell": {
+      "executable": "cmd.exe",
+      "args": ["/d", "/c"]
+    }
+  },
+  "group": {
+    "kind": "build",
+    "isDefault": true
+  },
+  "problemMatcher": []
+}
