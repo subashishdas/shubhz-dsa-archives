@@ -1,16 +1,34 @@
 {
-  "label": "compile and run",
-  "type": "shell",
-  "command": "javac -d . \"${file}\" && java ${fileBasenameNoExtension} < input.txt > output.txt",
-  "options": {
-    "shell": {
-      "executable": "cmd.exe",
-      "args": ["/d", "/c"]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "👨‍💻 Run Leetcode File (with package)",
+      "type": "shell",
+      "command": "javac -d . \"${file}\" && java leetcode.${fileBasenameNoExtension} < input.txt > output.txt",
+      "group": {
+        "kind": "build"
+      },
+      "options": {
+        "shell": {
+          "executable": "cmd.exe",
+          "args": ["/d", "/c"]
+        }
+      }
+    },
+    {
+      "label": "🚀 Run Codeforces File (no package)",
+      "type": "shell",
+      "command": "javac -d . \"${file}\" && java ${fileBasenameNoExtension} < input.txt > output.txt",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "options": {
+        "shell": {
+          "executable": "cmd.exe",
+          "args": ["/d", "/c"]
+        }
+      }
     }
-  },
-  "group": {
-    "kind": "build",
-    "isDefault": true
-  },
-  "problemMatcher": []
+  ]
 }
